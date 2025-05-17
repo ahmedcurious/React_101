@@ -37,7 +37,7 @@ function App() {
       </h1>
       <div
         className="w-full max-w-2xl mx-auto flex flex-col items-center gap-8
-        bg-gray-700 text-orange-600 border-orange-200 border rounded-3xl drop-shadow-lg py-4 px-14"
+        bg-gray-700 text-sky-600 border-orange-200 border rounded-3xl drop-shadow-lg py-4 px-14"
       >
         <h1 className="text-[60px] text-center font-semibold">
           Password Generator
