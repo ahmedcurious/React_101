@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 function Input({
   label,
   amount,
@@ -9,13 +11,17 @@ function Input({
   currencyDisable = false,
   className,
 }) {
+  const amountInputId = useId();
   return (
     <div
       className={`flex flex-row gap-10 bg-white px-6 py-4 rounded-lg ${className}`}
     >
       <div className="flex flex-col gap-3">
-        <label className="text-gray-400">{label}</label>
+        <label htmlFor={amountInputId} className="text-gray-400">
+          {label}
+        </label>
         <input
+          id={amountInputId}
           className="text-gray-600"
           type="number"
           placeholder="Amount"
@@ -36,7 +42,7 @@ function Input({
         >
           {currencyOption.map((currency, index) => {
             return (
-              <option value={currency} key={index}>
+              <option value={currency} key={index} className="rounded bg-slate-300">
                 {currency}
               </option>
             );
