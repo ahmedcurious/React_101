@@ -45,6 +45,7 @@ function App() {
         >
           <Input label={"From"} />
           <button
+            onClick={swap}
             className="w-fit px-6 py-2 rounded-lg bg-sky-600 font-medium
           border-solid border-2 border-sky-200 absolute top-[30%] hover:bg-sky-400 hover:shadow-2xl hover:border-sky-100"
           >
