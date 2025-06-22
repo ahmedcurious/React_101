@@ -6,7 +6,8 @@ function Input({
   onAmountChange,
   onCurrencyChange,
   currencyOption = ["usd", "pkr"],
-  selectedCurrency = "usd",
+  selectedCurrency,
+  setSelectedCurrency,
   amountDisable = false,
   currencyDisable = false,
   className,
@@ -37,12 +38,19 @@ function Input({
         <select
           className="text-gray-600 bg-slate-200 px-1 py-1 rounded"
           value={selectedCurrency}
-          onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
+          onChange={(e) => {
+            onCurrencyChange && onCurrencyChange(e.target.value);
+            setSelectedCurrency(e.target.value);
+          }}
           disabled={currencyDisable}
         >
           {currencyOption.map((currency, index) => {
             return (
-              <option value={currency} key={index} className="rounded bg-slate-300">
+              <option
+                value={currency}
+                key={index}
+                className="rounded bg-slate-300"
+              >
                 {currency}
               </option>
             );

@@ -8,6 +8,7 @@ function App() {
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("pkr");
   const [convertedAmount, setConvertedAmount] = useState(0);
+  const [selectedCurrency, setSelectedCurrency] = "";
 
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
@@ -43,7 +44,12 @@ function App() {
             convert();
           }}
         >
-          <Input label={"From"} />
+          <Input
+            label={"From"}
+            currencyOption={options}
+            selectedCurrency={selectedCurrency}
+            setSelectedCurrency={setSelectedCurrency}
+          />
           <button
             onClick={swap}
             className="w-fit px-6 py-2 rounded-lg bg-sky-600 font-medium
@@ -51,8 +57,14 @@ function App() {
           >
             swap
           </button>
-          <Input label={"To"} />
+          <Input
+            label={"To"}
+            currencyOption={options}
+            selectedCurrency={selectedCurrency}
+            setSelectedCurrency={setSelectedCurrency}
+          />
           <button
+            onClick={convert}
             className="w-full px-8 py-3 bg-sky-600 border-solid border-2 border-sky-200 font-medium
           rounded-lg hover:bg-sky-400 hover:shadow-2xl hover:border-sky-100"
           >
